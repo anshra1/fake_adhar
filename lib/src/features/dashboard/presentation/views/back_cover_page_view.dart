@@ -18,7 +18,7 @@ class BackCoverPageView extends HookWidget {
       text: data.backCover?.fatherName ?? '',
     );
     final vidNoController = useTextEditingController(
-      text: data.backCover?.vidNo ?? '6517 8064 0518',
+      text: data.backCover?.vidNo ?? '6517 8064 0518 3242',
     );
     final wardNoController = useTextEditingController(
       text: data.backCover?.wardNo ?? '',
@@ -42,6 +42,17 @@ class BackCoverPageView extends HookWidget {
       text: data.backCover?.pinCode ?? '',
     );
 
+    // Add focus nodes for each field
+    final fathersNameFocus = useFocusNode();
+    final vidNoFocus = useFocusNode();
+    final wardNoFocus = useFocusNode();
+    final localAddressFocus = useFocusNode();
+    final subDistrictFocus = useFocusNode();
+    final poFocus = useFocusNode();
+    final districtFocus = useFocusNode();
+    final stateFocus = useFocusNode();
+    final pinCodeFocus = useFocusNode();
+
     final formKey = useMemoized(GlobalKey<FormState>.new, []);
 
     return SingleChildScrollView(
@@ -59,6 +70,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: "Father's Name",
                     controller: fathersNameController,
+                    focusNode: fathersNameFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -71,6 +83,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'VID No',
                     controller: vidNoController,
+                    focusNode: vidNoFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -84,6 +97,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'Ward No',
                     controller: wardNoController,
+                    focusNode: wardNoFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -96,6 +110,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'Local Address',
                     controller: localAddressController,
+                    focusNode: localAddressFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -108,6 +123,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'Sub District',
                     controller: subDistrictController,
+                    focusNode: subDistrictFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -120,6 +136,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'PO',
                     controller: poController,
+                    focusNode: poFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -132,6 +149,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'District',
                     controller: districtController,
+                    focusNode: districtFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -144,6 +162,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'State',
                     controller: stateController,
+                    focusNode: stateFocus,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -156,6 +175,7 @@ class BackCoverPageView extends HookWidget {
                   AppTextField(
                     label: 'PIN Code',
                     controller: pinCodeController,
+                    focusNode: pinCodeFocus,
                     keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value != null && value.isNotEmpty) {
@@ -213,6 +233,7 @@ class BackCoverPageView extends HookWidget {
                     onPressed: () {
                       final frontcoverEntity =
                           data.frontCover?.copyWith(uuid: const Uuid().v4());
+
                       context.read<DocumentCubit>().updateTheDocumentData(
                             frontCover: frontcoverEntity,
                             isSuccess: true,

@@ -1,0 +1,2 @@
+/home/ansh/fake_adhar/android/app/.cxx/RelWithDebInfo/661p212q/x86_64/CMakeFiles/edit_cache.dir
+/home/ansh/fake_adhar/android/app/.cxx/RelWithDebInfo/661p212q/x86_64/CMakeFiles/rebuild_cache.dir

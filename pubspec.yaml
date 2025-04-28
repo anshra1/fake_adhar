@@ -28,12 +28,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  adaptive_dialog: ^2.4.1
   baby_package:
     path: /home/ansh/Studio Projects/Clone/baby_package
   bloc: ^9.0.0
-  calendar_date_picker2: ^2.0.0
   cupertino_icons: ^1.0.8
+  device_info_plus: ^11.4.0
   equatable: ^2.0.7
+  file_picker: ^10.1.2
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
@@ -48,12 +50,15 @@ dependencies:
   google_fonts: ^6.2.1
   image_cropper: ^9.0.0
   image_picker: ^1.1.2
-  inditrans: ^0.12.1
   intl: ^0.20.2
   path: ^1.9.1
-  share_plus: ^10.1.4
+  path_provider: ^2.1.5
+  permission_handler: ^12.0.0+1
+  screenshot: ^3.0.0
+  share_plus: ^11.0.0
   stack_trace: ^1.12.1
   syncfusion_flutter_datepicker: ^29.1.33
+  toastification: ^3.0.2
   translator: ^1.0.3+1
   uuid: ^4.5.1
 
@@ -82,4 +87,3 @@ flutter:
     - family: Arial
       fonts:
         - asset: asset/font/arial.ttf
-

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fake_adhar/src/core/extension/date.dart';
 import 'package:fake_adhar/src/core/extension/language.dart';
 import 'package:fake_adhar/src/core/extension/string.dart';
@@ -42,7 +44,7 @@ class FrontCoverWidget extends HookWidget {
       },
       [state.frontCover?.fullName],
     );
-
+    print('hindiName: ${hindiName.value}');
     return ConstrainedBox(
       constraints: BoxConstraints(maxWidth: width),
       child: LayoutBuilder(
@@ -68,7 +70,7 @@ class FrontCoverWidget extends HookWidget {
                 child: Text(
                   hindiName.value,
                   style: GoogleFonts.notoSansDevanagari(
-                    textStyle: style.copyWith(fontSize: w * .02),
+                    textStyle: style.copyWith(fontSize: w * .023),
                     fontWeight: FontWeight.w500,
                   ),
                   //    style: style.copyWith(fontSize: fontSize * 1.34),
@@ -80,7 +82,7 @@ class FrontCoverWidget extends HookWidget {
                 child: Text(
                   state.frontCover?.fullName.toTitleCase ?? 'Ansh Raj',
                   style: style.copyWith(
-                    fontSize: w * .02,
+                    fontSize: w * .022,
                     fontFamily: 'arial',
                     fontWeight: FontWeight.w500,
                   ),
@@ -89,18 +91,18 @@ class FrontCoverWidget extends HookWidget {
 
               Positioned(
                 left: w * 0.5,
-                top: w * 0.205,
+                top: w * 0.206,
                 child: Text(
                   state.frontCover?.dateOfBirth.formatDate() ?? '01/01/2000',
                   style: GoogleFonts.notoSerifTamil(
-                    textStyle: style.copyWith(fontSize:  w * .0190),
+                    textStyle: style.copyWith(fontSize: w * .023),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
 
               Positioned(
-                 left: w * 0.340,
+                left: w * 0.340,
                 top: w * 0.245,
                 child: RichText(
                   text: TextSpan(
@@ -108,18 +110,18 @@ class FrontCoverWidget extends HookWidget {
                       TextSpan(
                         text: state.frontCover?.gender == 'Male' ? 'पुरुष' : 'महिला',
                         style: GoogleFonts.notoSansDevanagari(
-                          textStyle: style.copyWith(fontSize:  w * .023),
+                          textStyle: style.copyWith(fontSize: w * .023),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       TextSpan(
                         text: '/ ',
-                        style: style.copyWith(fontSize:  w * .023),
+                        style: style.copyWith(fontSize: w * .023),
                       ),
                       TextSpan(
                         text: state.frontCover?.gender == 'Male' ? 'MALE' : 'FEMALE',
                         style: GoogleFonts.tinos(
-                          textStyle: style.copyWith(fontSize:  w * .023),
+                          textStyle: style.copyWith(fontSize: w * .023),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -128,16 +130,16 @@ class FrontCoverWidget extends HookWidget {
                 ),
               ),
 
-              // Positioned(
-              //   left: width * 0.11,
-              //   top: height * 0.24,
-              //   child: Image.file(
-              //     state.frontCover?.file ?? File(''),
-              //     width: width * 0.195,
-              //     height: height * 0.36,
-              //     fit: BoxFit.fill,
-              //   ),
-              // ),
+              Positioned(
+                left: w * 0.11,
+                top: w * 0.126,
+                child: Image.file(
+                  state.frontCover?.file ?? File(''),
+                  width: w * 0.195,
+                  // height: w * 0.36,
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
               // Add more positioned text/QR code/images here
             ],
           );

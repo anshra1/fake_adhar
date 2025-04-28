@@ -20,10 +20,13 @@ extension Date on String {
   }
 }
 
-
 // Assuming you have a Translator class with a translate method
 class Translator {
-  Future<String> translate(String text, {required String from, required String to}) async {
+  Future<String> translate(
+    String text, {
+    required String from,
+    required String to,
+  }) async {
     // Simulate translation logic here
     // For demonstration purposes, we'll just return the original text
     return text;
@@ -32,13 +35,17 @@ class Translator {
 
 // Extension on String to add translate functionality
 extension TranslateExtension on String {
-  Future<String> translateWith({required Translator translator, required String from, required String to}) async {
-    return await translator.translate(this, from: from, to: to);
+  Future<String> translateWith({
+    required Translator translator,
+    required String from,
+    required String to,
+  }) async {
+    return translator.translate(this, from: from, to: to);
   }
 }
 
 void main() async {
-  var translator = Translator();
-  var translatedText = await 'Hello'.translateWith(translator: translator, from: 'en', to: 'hi');
-  print(translatedText); // Output will be "Hello" based on the dummy implementation
+  final translator = Translator();
+  final translatedText =
+      await 'Hello'.translateWith(translator: translator, from: 'en', to: 'hi');
 }

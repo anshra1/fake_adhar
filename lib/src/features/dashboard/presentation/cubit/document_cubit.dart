@@ -18,6 +18,7 @@ class DocumentCubit extends Cubit<DocumentState> {
     FrontCoverEntity? frontCover,
     BackCoverEntity? backCover,
     bool isSuccess = false,
+  
   }) async {
     final data = state.copyWith(
       frontCover: frontCover,

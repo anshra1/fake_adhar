@@ -28,9 +28,9 @@ class _AdhaarBuildPageState extends State<AdhaarBuildPage> {
         context.pop(RoutesName.backCover);
       },
       child: Scaffold(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: const Color.fromARGB(255, 77, 147, 227),
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.blueAccent.shade400,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => context.pop(),

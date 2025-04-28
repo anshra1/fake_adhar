@@ -60,6 +60,7 @@ class BackCoverEntity extends Equatable {
     required this.pinCode,
     this.uuid,
   });
+  
   final String fatherName;
   final String vidNo;
   final String wardNo;

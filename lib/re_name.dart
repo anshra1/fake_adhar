@@ -34,12 +34,15 @@ class AppContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DismissKeyboard(
+      
       child: MaterialApp.router(
+        
         debugShowCheckedModeBanner: false,
         title: AppConfig.appName,
         themeMode: ThemeMode.light,
         theme: LightTheme.theme,
         routerConfig: AppRouter.router,
+        key: GlobalKey<NavigatorState>(),
         builder: (context, child) => AppScaffold(child: child),
       ),
     );

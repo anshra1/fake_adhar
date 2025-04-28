@@ -2,12 +2,11 @@ import 'package:fake_adhar/re_name.dart';
 import 'package:fake_adhar/src/core/config/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:inditrans/inditrans.dart' as inditrans;
 
 Future<void> main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
-    await inditrans.init();
+
     await init();
 
     FlutterError.onError = (FlutterErrorDetails details) {
@@ -16,7 +15,7 @@ Future<void> main() async {
     }; // Initialize dependencies first
 
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    
+
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,

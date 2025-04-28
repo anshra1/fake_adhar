@@ -21,7 +21,7 @@ class FrontPageView extends HookWidget {
   Widget build(BuildContext context) {
     final fullNameController = useTextEditingController(text: data?.fullName);
     final aadhaarController =
-        useTextEditingController(text: data?.aadhaarNumber ?? '3445 4453 4524 9339');
+        useTextEditingController(text: data?.aadhaarNumber ?? '3445 4453 4524');
     final dateOfBirthController = useTextEditingController(text: data?.dateOfBirth);
     final imageNotifier = useValueNotifier<File?>(data?.file);
     final formKey = useMemoized(
@@ -63,11 +63,11 @@ class FrontPageView extends HookWidget {
                 keyboardType: TextInputType.number,
                 labelTextColor: Colors.black87,
                 inputFormatters: [
-                  TextInputFormatterHelper.spaceAfterEveryFour(maxCharacters: 16),
+                  TextInputFormatterHelper.spaceAfterEveryFour(maxCharacters: 12),
                 ],
                 overrideValidator: true,
                 validator: (value) {
-                  if (value != null && value.length > 16) {
+                  if (value != null && value.length > 12) {
                     return null;
                   }
                   return 'Please fill Aadhar Number';
@@ -78,7 +78,7 @@ class FrontPageView extends HookWidget {
               const Gap(16),
               GenderSelection(label: 'Gender', onGenderSelected: genderNotifier),
               const Gap(16),
-             // ImagePickerWidget(onImageSelected: imageNotifier),
+              ImagePickerWidget(onImageSelected: imageNotifier),
               const Gap(16),
               AppButton(
                 text: 'Next',
